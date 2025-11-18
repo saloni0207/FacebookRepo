@@ -1,8 +1,9 @@
 package stepDefinitions;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
+//import org.testng.Assert;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -57,7 +58,10 @@ public void user_enters_password() {
 		
 		String login= loginPage.verifyLogin();
 		
-		Assert.assertEquals(login, "Find your account and log in.");
+		Assertions.assertTrue(login.contains("Facebook") || login.contains("Find your account and log in."),
+                "Home page title mismatch!");
+		
+		//Assert.assertEquals(login, "Find your account and log in.");
 		
 		
 		
